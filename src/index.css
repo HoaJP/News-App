@@ -1,0 +1,23 @@
+.nav-link {
+  transform: scale(1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  transform: scale(1.1) translateY(-2px);
+  filter: brightness(1.2);
+}
+
+.nav-link.active {
+  font-size: larger;
+}
+
+@media (max-width: 1024px) {
+  .nav-link:hover {
+    transform: translateX(12px);
+  }
+  #navbarNav {
+    margin-left: 4px;
+  }
+}
