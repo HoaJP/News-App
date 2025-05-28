@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import '../index.css'
+import "../index.css";
 
-const Navbar = ({setCategory}) => {
-  const [activeCategory, setActiveCategory] = useState(""); 
+const Navbar = ({ setCategory }) => {
+  const [activeCategory, setActiveCategory] = useState("");
 
   const handleCategoryClick = (category) => {
     setActiveCategory(category); // Cập nhật danh mục đang được chọn
-    setCategory(category); 
+    setCategory(category);
+  };
 
   return (
     <nav
@@ -32,7 +33,9 @@ const Navbar = ({setCategory}) => {
           <ul className="navbar-nav">
             <li className="nav-item">
               <div
-                className={`nav-link ${activeCategory === "technology" ? "active" : ""}`}
+                className={`nav-link ${
+                  activeCategory === "technology" ? "active" : ""
+                }`}
                 onClick={() => handleCategoryClick("technology")}
               >
                 Technology
@@ -40,7 +43,9 @@ const Navbar = ({setCategory}) => {
             </li>
             <li className="nav-item">
               <div
-                className={`nav-link ${activeCategory === "business" ? "active" : ""}`}
+                className={`nav-link ${
+                  activeCategory === "business" ? "active" : ""
+                }`}
                 onClick={() => handleCategoryClick("business")}
               >
                 Business
@@ -48,7 +53,9 @@ const Navbar = ({setCategory}) => {
             </li>
             <li className="nav-item">
               <div
-                className={`nav-link ${activeCategory === "health" ? "active" : ""}`}
+                className={`nav-link ${
+                  activeCategory === "health" ? "active" : ""
+                }`}
                 onClick={() => handleCategoryClick("health")}
               >
                 Health
@@ -56,7 +63,9 @@ const Navbar = ({setCategory}) => {
             </li>
             <li className="nav-item">
               <div
-                className={`nav-link ${activeCategory === "sport" ? "active" : ""}`}
+                className={`nav-link ${
+                  activeCategory === "sport" ? "active" : ""
+                }`}
                 onClick={() => handleCategoryClick("sport")}
               >
                 Sport
@@ -64,7 +73,9 @@ const Navbar = ({setCategory}) => {
             </li>
             <li className="nav-item">
               <div
-                className={`nav-link ${activeCategory === "entertainment" ? "active" : ""}`}
+                className={`nav-link ${
+                  activeCategory === "entertainment" ? "active" : ""
+                }`}
                 onClick={() => handleCategoryClick("entertainment")}
               >
                 Entertainment
@@ -72,7 +83,9 @@ const Navbar = ({setCategory}) => {
             </li>
             <li className="nav-item">
               <div
-                className={`nav-link ${activeCategory === "science" ? "active" : ""}`}
+                className={`nav-link ${
+                  activeCategory === "science" ? "active" : ""
+                }`}
                 onClick={() => handleCategoryClick("science")}
               >
                 Science
