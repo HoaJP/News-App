@@ -7,12 +7,15 @@ const Newsboard = ({ category }) => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${
+        const url = `https://newsdata.io/api/1/latest?apikey=${
           import.meta.env.VITE_API_KEY
-        }`;
+        }&q=${category}&language=en`;
+
         const response = await fetch(url);
         const data = await response.json();
-        setArticles(data.articles || []);
+        console.log(data.results);
+        
+        setArticles(data.results || []);
       } catch (error) {
         console.error("Error fetching articles:", error);
       }
@@ -39,8 +42,8 @@ const Newsboard = ({ category }) => {
               <NewsItem
                 title={news.title}
                 desc={news.description}
-                url={news.url}
-                src={news.urlToImage}
+                url={news.link}
+                src={news.image_url}
               />
             </div>
           ))}
