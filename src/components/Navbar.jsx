@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../index.css";
-
+import { CategoryType } from "../enum/CategoryType";
 const Navbar = ({ setCategory }) => {
   const [activeCategory, setActiveCategory] = useState("");
 
@@ -9,6 +9,14 @@ const Navbar = ({ setCategory }) => {
     setCategory(category);
   };
 
+  const navItems = [
+    { key: CategoryType.TECHNOLOGY, label: "Technology" },
+    { key: CategoryType.BUSINESS, label: "Business" },
+    { key: CategoryType.HEALTH, label: "Health" },
+    { key: CategoryType.SPORT, label: "Sport" },
+    { key: CategoryType.ENTERTAINMENT, label: "Entertainment" },
+    { key: CategoryType.SCIENCE, label: "Science" },
+  ];
   return (
     <nav
       className="navbar navbar-expand-lg bg-body-tertiary position-fixed top-0 left-0 w-100 z-3"
@@ -29,7 +37,7 @@ const Navbar = ({ setCategory }) => {
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
+        {/* <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
               <div
@@ -91,6 +99,22 @@ const Navbar = ({ setCategory }) => {
                 Science
               </div>
             </li>
+          </ul>
+        </div> */}
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            {navItems.map((item) => (
+              <li className="nav-item" key={item.key}>
+                <div
+                  className={`nav-link ${
+                    activeCategory === item.key ? "active" : ""
+                  }`}
+                  onClick={() => handleCategoryClick(item.key)}
+                >
+                  {item.label}
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
